@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sports BF</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="scripts.js" defer></script>
+    <link rel="icon" type="image/svg" href="./media/bxs-basketball.svg" />
+</head>
+<body>
+    
+    <header>
+        <div class="greatcontainer">
+            <h1>Sports BF</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#" onclick="scrollToSection('database-section')">Challenges</a></li>
+                    <li><a href="#" onclick="scrollToSection('expert-section')">Contribute to the Crew</a></li>
+                    <li><a href="#" onclick="scrollToSection('testimonials-section')">Testimonials</a></li>
+                    <li><a href="#" onclick="scrollToSection('events-section')">Upcoming Events</a></li>
+                    <li><button id="signInButton">Sign In</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <div class="welcome-text">
+                <h2>Welcome to Sports BF!</h2>
+                <p>This is Sports BF, your space for a great physical and mental activity. Join this great sport community now!</p>
+                <button onclick="scrollToSection('database-section')">Visit Database</button>
+                <button onclick="scrollToSection('expert-section')">About the Crew</button>
+            </div>
+            <div class="welcome-image">
+                <img src="./media/deportes-2.webp" alt="Sports Banner" />
+            </div>
+        </section>
+
+        <section class="database-section" id="database-section">
+            <h2>Our Programming Database</h2>
+            <div class="cards">
+                <div class="card">
+                    <img alt="Flowchart" src="./media/START.jpg" />
+                    <h3>EMPLOYEES SALARY PROBLEM</h3>
+                    <p>This is my work to calculate his/her weekly salary</p>
+                    <button onclick="openFlowchartModal('./media/START.jpg', 'This flowchart helps you calculate the weekly salary of employees based on hours worked.')">Watch Flowchart</button>
+                </div>
+                <div class="card">
+                    <img alt="Conditionals and loops" src="./media/Captura de pantalla 2024-12-10 155748.png" />
+                    <h3>Conditionals and Loops Problem</h3>
+                    <p>This is my Algorithm</p>
+            
+                    <button onclick="openFlowchartModal('./media/Captura de pantalla 2024-12-10 155748.png', 'This is my algorithm with conditionals and loops.')">Watch Algorithm</button>
+                </div>
+                <div class="card">
+                    <img alt="Sphere Volume" src="./media/Captura de pantalla 2024-12-10 160201.png" />
+                    <h3>Sphere Volume Algorithm</h3>
+                    <p>This is my algorithm Sphere Volume</p>
+                    <button onclick="openFlowchartModal('./media/Captura de pantalla 2024-12-10 160201.png', 'This algorithm calculates the volume of a sphere.')">View Sphere Volume Algorithm</button>
+                </div>
+            </div>
+        </section>
+
+      
+        <div id="flowchartModal" class="modal" style="display:none; position: fixed; top: 0; left: 0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+            <div style="background:white; padding: 20px; border-radius:10px; max-width:600px; text-align:center; position: relative;">
+                <span style="position:absolute; top:10px; right:15px; font-size: 28px; font-weight: bold; color:#888; cursor:pointer;" onclick="closeFlowchartModal()">&times;</span>
+                <img id="flowchartImg" src="" style="width:100%; border-radius:10px;" alt="Flowchart Image" />
+                <p id="flowchartDesc" style="margin-top: 1rem; color:#333; font-weight: 600;"></p>
+                <button onclick="closeFlowchartModal()" style="margin-top: 1rem; padding: 0.5rem 1rem; border:none; background-color:#D64545; color:#fff; border-radius:5px; cursor:pointer;">Close</button>
+            </div>
+        </div>
+
+        <section class="guess-section">
+            <h2 style="color: rgb(253, 24, 24);">An additional challenge for you!</h2>
+            <p>Type a number between 0 and 100. Try to guess the number!</p>
+            <input type="number" id="userGuess" min="0" max="100" />
+            <button onclick="checkGuess()">Guess now!</button>
+            <p id="feedback"></p>
+        </section>
+
+        <section class="testimonial-section" id="testimonials-section">
+            <h2>What our users say</h2>
+            <div class="cards">
+                <div class="card">
+                    <p>"Thanks to Sports BF, I finally found motivation to train every week!"</p>
+                    <h4>- Guillermo</h4>
+                </div>
+                <div class="card">
+                    <p>"An amazing platform for connecting with others and staying fit."</p>
+                    <h4>- David Aaron</h4>
+                </div>
+            </div>
+        </section>
+
+        <section class="events-section" id="events-section">
+            <h2>Upcoming Sports Events</h2>
+            <ul>
+                <li><strong>June 5:</strong> Online Workout Challenge - Zoom</li>
+                <li><strong>June 12:</strong> Live with a Coach - Instagram Live</li>
+                <li><strong>June 20:</strong> Friendly Match in Bogotá</li>
+            </ul>
+        </section>
+
+        <section class="expert-section" id="expert-section">
+            <h2>Meet Our Crew</h2>
+            <div class="expert-card">
+                <img src="./media/30959bbf-db4b-48b6-9d39-ff8edfe2bdc6.jpg" alt="Juan Pablo Vasquez" class="Creator" />
+                <h3>Juan Pablo Vasquez</h3>
+                <p class="expert-title">Myself</p>
+                <p class="expert-description">
+                    Helping athletes achieve their goals through personalized training and teamwork.
+                </p>
+            </div>
+            <div class="suscribe">
+                <h2>Want more information about the project?</h2>
+                <h4>Type your mail to receive more notifications weekly.</h4>
+                <form onsubmit="sendMail(); return false;">
+                    <input type="email" name="email" placeholder="example@mail.com" required />
+                    <input type="submit" value="Send" />
+                </form>
+                <div><p id="mailsuccess"></p></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="signInModal" style="display: none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+        <h2>Sign In</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" /><br /><br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" /><br /><br />
+        <button onclick="signIn()">Log In</button>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <footer>
+        <p>2024 Sports BF</p>
+    </footer>
+</body>
+</html>
+
+
+
+
